@@ -1,0 +1,1 @@
+(()=>{console.log("I am working correctly.");const e=document.querySelector("body"),o=document.createElement("p");o.textContent="Hello there.",e.appendChild(o)})();

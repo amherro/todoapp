@@ -55,36 +55,38 @@ const createList = () => {
                     if(itemDisplay.classList.contains(project.title.replace(/\s+/g, ''))) {
                         itemDisplay.style.display = 'Block'
                     }
+                    addItemBtn.addEventListener('click', () => {
+                        function createToDo() {
+                            let item = new ToDo
+                            let nameInput = document.querySelector('.nameInput')
+                            let descriptionInput = document.querySelector('.descriptionInput')
+                            item.setName(nameInput.value)
+                            item.setDescription(descriptionInput.value)
+                        
+                            let display = document.querySelector('.taskDisplay');
+                            let toDoItem =  document.createElement('div');
+                            toDoItem.classList.add('toDoCard');
+                            let name = document.createElement('li')
+                            name.classList.add('name');
+                            name.textContent = item.name
+                            let description = document.createElement('li');
+                            description.classList.add('description');
+                            description.textContent = item.description
+                            toDoItem.append(name)
+                            toDoItem.append(description)
+                            display.append(toDoItem)
+                            nameInput.textContent = '';
+                            descriptionInput.textContent = '';
+                        }
+                        let submitBtn = document.querySelector('.addItemBtn')
+                        submitBtn.addEventListener('click', createToDo);
+        
+                    })
                     
                 }
                 displayToDoInput();
-                /*
-                function createToDo() {
-                    let item = new ToDo
-                    let nameInput = document.querySelector('.nameInput')
-                    let descriptionInput = document.querySelector('.descriptionInput')
-                    item.setName(nameInput.value)
-                    item.setDescription(descriptionInput.value)
+           
                 
-                    let display = document.querySelector('.toDoList');
-                    let toDoItem =  document.createElement('div');
-                    toDoItem.classList.add('toDoCard');
-                    let name = document.createElement('li')
-                    name.classList.add('name');
-                    name.textContent = item.name
-                    let description = document.createElement('li');
-                    description.classList.add('description');
-                    description.textContent = item.description
-                    toDoItem.append(name)
-                    toDoItem.append(description)
-                    display.appendChild(toDoItem)
-                    nameInput.value = '';
-                    descriptionInput.value = '';
-                    return toDoItem
-                }
-                let submitBtn = document.querySelector('.addItemBtn')
-                submitBtn.addEventListener('click', createToDo);
-                */
             })
         }
         displayTasks();

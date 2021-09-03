@@ -2,57 +2,101 @@ import './CSS/style.css'
 import ToDo from "./to_do";
 import Project from "./projects";
 
+const createList = () => {
+    let taskDisplay = document.querySelector('.taskDisplay')
+    let project = new Project;
+    let projectsArr = [];
+    function addProject() {
+        const projectNameInput = document.querySelector('.projectName')
+        project.setProjectName(projectNameInput.value)
+        projectsArr.push(project.title)
+        //console.log(projectsArr)
+        
+        let projectDisplay = document.querySelector('.projectList')
+        // Make each project a button, and when clicked it will display the associated to do's
+        let newProject = document.createElement('button')
+        newProject.classList.add('newProjectCard')
+        let projectTitle = document.createElement('h3')
+        projectTitle.textContent = project.title;
+        newProject.append(projectTitle);
+        projectDisplay.append(newProject);
+        projectNameInput.value = '';
+        
+        let displayTasks = () => {
+            newProject.addEventListener('click', () => {
+                function displayToDoInput() {
+                    let itemDisplay = document.createElement('main')
+                    itemDisplay.classList.add('itemDisplay')
+                    let toDoTitle = document.createElement('h2')
+                    toDoTitle.classList.add('toDoTitle')
+                    let toDoSection = document.createElement('div')
+                    toDoSection.classList.add('toDoSection');
+                    let inputTitle = document.createElement('h3')
+                    inputTitle.textContent = 'Add a New Item'
+                    let nameInput = document.createElement('input')
+                    nameInput.classList.add('nameInput')
+                    nameInput.type = 'text'
+                    let descriptionInput = document.createElement('input')
+                    descriptionInput.classList.add('descriptionInput')
+                    let addItemBtn = document.createElement('button')
+                    addItemBtn.classList.add('addItemBtn')
+                    addItemBtn.textContent = '+'
+                    itemDisplay.append(toDoTitle);
+                    itemDisplay.append(toDoSection);
+                    itemDisplay.append(inputTitle);
+                    itemDisplay.append(nameInput);
+                    itemDisplay.append(descriptionInput);
+                    itemDisplay.append(addItemBtn);
 
-function displayToDoInput() {
-    const openInputBtn = document.querySelector('.openToDoInput')
-    openInputBtn.addEventListener('click', () => {
-        const addSection = document.querySelector('.addToDoSection')
-        addSection.style.display = 'Block'
-    })
-}  
+                    taskDisplay.append(itemDisplay)
 
-
-function createToDo() {
-    let item = new ToDo
-    let nameInput = document.querySelector('.nameInput')
-    let descriptionInput = document.querySelector('.descriptionInput')
-    item.setName(nameInput.value)
-    item.setDescription(descriptionInput.value)
-
-    let display = document.querySelector('.toDoList');
-    let toDoItem =  document.createElement('div');
-    toDoItem.classList.add('toDoCard');
-    let name = document.createElement('li')
-    name.classList.add('name');
-    name.textContent = item.name
-    let description = document.createElement('li');
-    description.classList.add('description');
-    description.textContent = item.description
-    toDoItem.append(name)
-    toDoItem.append(description)
-    display.appendChild(toDoItem)
+                    itemDisplay.classList.add(`${project.title.replace(/\s+/g, '')}`)
+                    console.log(itemDisplay.classList)
+                    if(itemDisplay.classList.contains(project.title.replace(/\s+/g, ''))) {
+                        itemDisplay.style.display = 'Block'
+                    }
+                    
+                }
+                displayToDoInput();
+                /*
+                function createToDo() {
+                    let item = new ToDo
+                    let nameInput = document.querySelector('.nameInput')
+                    let descriptionInput = document.querySelector('.descriptionInput')
+                    item.setName(nameInput.value)
+                    item.setDescription(descriptionInput.value)
+                
+                    let display = document.querySelector('.toDoList');
+                    let toDoItem =  document.createElement('div');
+                    toDoItem.classList.add('toDoCard');
+                    let name = document.createElement('li')
+                    name.classList.add('name');
+                    name.textContent = item.name
+                    let description = document.createElement('li');
+                    description.classList.add('description');
+                    description.textContent = item.description
+                    toDoItem.append(name)
+                    toDoItem.append(description)
+                    display.appendChild(toDoItem)
+                    nameInput.value = '';
+                    descriptionInput.value = '';
+                    return toDoItem
+                }
+                let submitBtn = document.querySelector('.addItemBtn')
+                submitBtn.addEventListener('click', createToDo);
+                */
+            })
+        }
+        displayTasks();
+    }
+    addProject()
 }
-let submitBtn = document.querySelector('.addItemBtn')
-submitBtn.addEventListener('click', createToDo)
+
+let submitProjectBtn = document.querySelector('.addProjectBtn')
+submitProjectBtn.addEventListener('click', createList);
 
 function loadPage() {
-    displayToDoInput();
+    
 }
 
 export default loadPage;
-
-/*
-let one = new ToDo;
-
-one.setName('Take out trash')
-one.setDescription('I need to take out the trash so it does not smell.')
-console.log(one.name)
-console.log(one.description)
-
-
-let body = document.querySelector('body')
-let title = document.createElement('h1')
-title.append(one.name)
-title.append(one.description)
-body.append(title)
-*/

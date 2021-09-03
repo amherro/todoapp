@@ -1,7 +1,9 @@
 body {
     background-color: red;
 }
-
+.itemDisplay {
+    display: none;
+}
 .addToDoSection {
     display: none;
 }

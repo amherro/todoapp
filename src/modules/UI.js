@@ -2,6 +2,56 @@ import './CSS/style.css'
 import ToDo from "./to_do";
 import Project from "./projects";
 
+
+export default class CreateList {
+    constructor(project, projectArr) {
+        this.project = project;
+        this.projectArr = projectArr;
+    }
+    addTask() {
+        let submitBtn = document.querySelector('.submitTask')
+        submitBtn.addEventListener('click', () => {
+            let task = new ToDo;
+            let taskName = document.querySelector('.taskName')
+            let taskDescription = document.querySelector('.description')
+            task.setName(taskName.value)
+            task.setDescription(taskDescription.value)
+
+            let taskList = document.querySelector('.taskList');
+            let taskCard = document.createElement('div')
+            taskCard.classList.add('taskCard')
+            let name = document.createElement('li')
+            name.classList.add('name')
+            name.textContent = task.name;
+            let description = document.createElement('li')
+            description.classList.add('description')
+            if (task.description === '') {
+                description.style.display = 'None'
+            } else {
+                description.textContent = task.description
+            }
+
+            let deleteBtn = document.createElement('button')
+            deleteBtn.classList.add('deleteBtn')
+            deleteBtn.textContent = '-'
+            deleteBtn.addEventListener('click', () => {
+                taskCard.style.display = 'None'
+            })
+
+            taskCard.append(name)
+            taskCard.append(description)
+            taskCard.append(deleteBtn)
+            taskList.append(taskCard)
+
+            taskName.value = '';
+            taskDescription.value = '';
+        })
+    }
+}
+let newTask = new CreateList
+newTask.addTask();
+
+/*
 const createList = () => {
     let taskDisplay = document.querySelector('.taskDisplay')
     let project = new Project;
@@ -80,13 +130,9 @@ const createList = () => {
                         }
                         let submitBtn = document.querySelector('.addItemBtn')
                         submitBtn.addEventListener('click', createToDo);
-        
                     })
-                    
                 }
                 displayToDoInput();
-           
-                
             })
         }
         displayTasks();
@@ -102,3 +148,4 @@ function loadPage() {
 }
 
 export default loadPage;
+*/

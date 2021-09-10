@@ -8,6 +8,7 @@ body {
 .mainHeader {
     text-align: center;
     margin-top: 30px;
+    font-size: 45px;
     font-family: 'Bradley Hand', sans-serif;
 }
 .taskDisplay {
@@ -84,11 +85,12 @@ footer {
     margin-left: 30px;
 }
 
-@media(max-width: 400px) {
+@media(max-width: 1000px) {
     .mainHeader {
-        margin-left: 177px;
+        margin-left: 20%;
         padding: 0px;
         text-align: center;
+        font-size: 20px;
     }
     .taskDisplay {
         display: grid;
@@ -104,60 +106,10 @@ footer {
         margin: 0px 25% 0px 15%;
     }
     footer {
-        margin-left: 180px;
+        margin-left: 20%;
     }
     .gitHubLogo {
-        margin-top: 10px;
+        margin-top: 0px;
     }
 }
-@media(min-width: 400px) {
-    .mainHeader {
-        margin-left: 110px ;
-        padding: 0px;
-        text-align: center;
-    }
-    .taskDisplay {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .addTaskForm {
-        justify-self: center;
-        margin: 0px 0px 20px 3%;
-    }
-    .taskList {
-        justify-self: center;
-        max-width: 70%;
-        margin: 0px 25% 0px 15%;
-    }
-    footer {
-        margin-left: 180px;
-    }
-    .gitHubLogo {
-        margin-top: 10px;
-    }
-}
-@media (min-width: 1000px) {
-    .mainHeader {
-        font-size: 45px;
-        margin: 100px 0px 50px 45px;
-    }
-    .taskDisplay {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-    .addTaskForm {
-        justify-self: center;
-        margin: 0px 0px 20px 3%;
-    }
-    .taskList {
-        justify-self: center;
-        max-width: 100%;
-        margin: 0px 40% 0px 26%;
-    }
-    footer {
-        margin-left: 0px;
-    }
-    .copyRight { 
-        margin-top: 15px;
-    }
-}
+

@@ -1,8 +1,7 @@
 import './CSS/style.css'
 import ToDo from "./to_do";
-import Project from "./projects";
 
-//taskList.textContent = localStorage.getItem('This is a test')
+
 let taskList = document.querySelector('.taskList');
 taskList = document.querySelector('.taskList');
 
@@ -30,30 +29,11 @@ window.addEventListener('load', () => {
    })
 })
 
-export default class CreateList {
+class CreateList {
     constructor(project, projectArr) {
         this.project = project;
         this.projectArr = projectArr;
     }
-    /*
-    loadTasks() {
-        let taskList = document.querySelector('.taskList')
-        let taskCard = document.createElement('div')
-        taskCard.classList.add('taskList')
-        let name = document.createElement('li')
-        name.classList.add('name')
-        let deleteBtn = document.createElement('button')
-        deleteBtn.classList.add('deleteBtn')
-        deleteBtn.textContent = 'X'
-        taskCard.append(name)
-        taskCard.append(deleteBtn)
-        taskList.append(taskCard)
-
-        for(i = 0; i < localStorage.length; i++) {
-            name = JSON.parse(localStorage.getItem(key))
-        }
-    }
-    */
     addTask() {
         let submitBtn = document.querySelector('.submitTask')
         submitBtn.addEventListener('click', () => {
@@ -90,10 +70,6 @@ export default class CreateList {
             })
             // Reset textbox after submission
             taskName.value = '';
-
-            for(let i = 0; i < localStorage.length; i++) {
-                name = (localStorage.getItem(`${task.name}`))
-            }
            
         })
     }

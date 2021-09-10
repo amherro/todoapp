@@ -5,10 +5,9 @@
 body {
     background-color: rgb(101, 186, 255);
 }
-header.mainHeader {
+.mainHeader {
     text-align: center;
     margin-top: 30px;
-    margin-left: 60px;
     font-family: 'Bradley Hand', sans-serif;
 }
 .taskDisplay {
@@ -60,7 +59,7 @@ header.mainHeader {
     justify-self: right;
     margin-left: 90px;
     overflow: auto;
-    position: relative;
+    
     background-color: rgb(218, 218, 218);
 }
 
@@ -83,4 +82,82 @@ footer {
 .copyRight {
     margin-top: 7px;
     margin-left: 30px;
+}
+
+@media(max-width: 400px) {
+    .mainHeader {
+        margin-left: 177px;
+        padding: 0px;
+        text-align: center;
+    }
+    .taskDisplay {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .addTaskForm {
+        justify-self: center;
+        margin: 0px 0px 20px 3%;
+    }
+    .taskList {
+        justify-self: center;
+        max-width: 70%;
+        margin: 0px 25% 0px 15%;
+    }
+    footer {
+        margin-left: 180px;
+    }
+    .gitHubLogo {
+        margin-top: 10px;
+    }
+}
+@media(min-width: 400px) {
+    .mainHeader {
+        margin-left: 110px ;
+        padding: 0px;
+        text-align: center;
+    }
+    .taskDisplay {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .addTaskForm {
+        justify-self: center;
+        margin: 0px 0px 20px 3%;
+    }
+    .taskList {
+        justify-self: center;
+        max-width: 70%;
+        margin: 0px 25% 0px 15%;
+    }
+    footer {
+        margin-left: 180px;
+    }
+    .gitHubLogo {
+        margin-top: 10px;
+    }
+}
+@media (min-width: 1000px) {
+    .mainHeader {
+        font-size: 45px;
+        margin: 100px 0px 50px 45px;
+    }
+    .taskDisplay {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .addTaskForm {
+        justify-self: center;
+        margin: 0px 0px 20px 3%;
+    }
+    .taskList {
+        justify-self: center;
+        max-width: 100%;
+        margin: 0px 40% 0px 26%;
+    }
+    footer {
+        margin-left: 0px;
+    }
+    .copyRight { 
+        margin-top: 15px;
+    }
 }

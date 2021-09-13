@@ -5,31 +5,7 @@ import ToDo from "./to_do";
 let taskList = document.querySelector('.taskList');
 taskList = document.querySelector('.taskList');
 
-window.addEventListener('load', () => {
-    /*for(let i in localStorage) {
-        taskList.textContent = localStorage[i];
-    }
-    */
-   (Object.keys(localStorage)).forEach((key) => {
-       let oldTask = document.createElement('div')
-       oldTask.classList.add('taskCard')
-       let oldTaskName = document.createElement('li')
-       oldTaskName.classList.add('name')
-       oldTaskName.textContent = localStorage[key]
-       let oldDeleteBtn = document.createElement('button')
-       oldDeleteBtn.classList.add('deleteBtn')
-       oldDeleteBtn.textContent = 'X'
-       oldDeleteBtn.addEventListener('click', () => {
-            localStorage.removeItem(key)
-            oldTask.style.display = 'None'
-        })
-       oldTask.append(oldTaskName)
-       oldTask.append(oldDeleteBtn)
-       taskList.append(oldTask);
-   })
-})
-
-class CreateList {
+export default class CreateList {
     constructor(project, projectArr) {
         this.project = project;
         this.projectArr = projectArr;
@@ -74,5 +50,4 @@ class CreateList {
         })
     }
 }
-let newTask = new CreateList
-newTask.addTask();
+
